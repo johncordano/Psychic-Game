@@ -1,21 +1,17 @@
 
-// Creates an array that lists all of the computer choices.
+// Creates an array that lists all of the choices for the computer guess.
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // Creates an empty array that will list the user guesses.
 var guessesSofar = [];
 // Creates a variable for the guesses left from the user.
 var guessesLeft = 9;
-// Creates variable for the number of times the user guess is incorrect in a game session.
+// Creates variable for the number of times the user losses a game session.
 var losses = 0;
-//Creates variable for the number of times the user guess is correct in a game session.
+// Creates variable for the number of times the user wins a game session.
 var wins = 0;
 
 
-
-
-
-
-//Loads the variables from the js to the html.
+// Loads four of the above variables from the JavaScript to the html file.
 function loadvar () {
 	var guessesLeft = 9;
 	document.getElementById("displayguessesleft").innerHTML = (guessesLeft);
@@ -28,80 +24,69 @@ function loadvar () {
 }
 
 
-
-
-
-
-
-
-// Randomly chooses a value from the computerChoices array. This value is the computer's guess.
+// Randomly chooses a value (the computer's guess) from the computerChoices array.
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 
-// This function is run when the user presses a key.
+// When a user presses a key, this function determines that key.
 document.onkeyup = function(event) {
 
- 	// Determines the key that the user pressed.
+ 	// Populates the userGuess variable with the key that the user presses.
  	var userGuess = event.key;
- 	// Populates GuessesSofar array with the user key.
+
+ 	// Populates GuessesSofar array with the userGuess variable.
  	guessesSofar.push(userGuess);
+
+ 	// Clears the GuessesSofar array when a game session is complete.
+ 	if ((guessesSofar.length) == 9) {
+ 		(guessesSofar.length) = 0;
+ 	}
+
  	// Updates the "Guesses so far" display.
  	document.getElementById("displayuserguesses").innerHTML = (guessesSofar);
- 	// Resets the field values when a game session is complete.
- 	// if ((guessesLeft) < 0) {
- 	// 	(guessesLeft) = 9;
- 	// 	(guessesSofar.length) = 0;
- 	// }
- 	// Determines the number of guesses left.
- 	guessesLeft = (guessesLeft - 1);
+
+ 	// Determines the guesses left from the user and the number of session losses, and resets the 
+ 	// guessesLeft variable and the computerGuess variable when the user losses a game session.
+ 	if ((guessesLeft) == 1) {
+		losses = (losses + 1);
+		(computerGuess) = computerChoices[Math.floor(Math.random() * computerChoices.length)]; 
+		(guessesLeft) = 9;
+	}
+	else {
+		guessesLeft = (guessesLeft - 1);
+	}
+
+	// Updates the "Losses" display.
+ 	document.getElementById("displaylosses").innerHTML = (losses);
+
  	// Updates the "Guesses Left" display.
  	document.getElementById("displayguessesleft").innerHTML = (guessesLeft);
- 	//Resets the field values when a game session is complete.
- 	// if ((guessesLeft) < 0) {
- 	// (guessesLeft) = 9;
- 	// (guessesSofar.length) = 0;
- 	// }
-	// Determines the number of session wins.
+
+	// Determines the number of session wins, resets the guessesLeft variable and the computerGuess 
+	// variable when the user wins a game session, and clears the guessesSofar array when the user
+	// wins a game session.
 	if ((userGuess) == (computerGuess)) {
 		wins = (wins + 1);
-		//var sessiondone = true;		
+		(computerGuess) = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+		(guessesLeft) = 9;
+		(guessesSofar.length) = 0; 		
 		}
-	// //Updates the "Wins" display.
+
+	// Updates the "Wins" display.
 	document.getElementById("displaywins").innerHTML = (wins);
-	// Determines the number of session losses.
-	if ((guessesLeft) == 0) {
-		losses = (losses +1);
-		//var sessiondone = true;
-	}
-	//Updates the "Losses" display.
- 	document.getElementById("displaylosses").innerHTML = (losses);
- 	//Resets the field values when the game session is complete.
- 	// if sessiondone = true {
- 	// (guessesLeft) = 9;
- 	// (guessesSofar.length) = 0;
- 	// }
 
+	// Updates the "Guesses Left" display.
+ 	document.getElementById("displayguessesleft").innerHTML = (guessesLeft);
 
- 	
+	// Updates the "Guesses so far" display.
+ 	document.getElementById("displayuserguesses").innerHTML = (guessesSofar);
 
- 	console.log(userGuess);
- 	console.log(computerGuess);
- 	console.log(guessesSofar);
- 	console.log(guessesLeft);
- 	console.log(losses);
- 	console.log(wins);
+ 	// Console.logs used for debugging.
+ 	// console.log(userGuess);
+ 	// console.log(computerGuess);
+ 	// console.log(guessesSofar);
+ 	// console.log(guessesLeft);
+ 	// console.log(losses);
+ 	// console.log(wins);
  	
 };
-
-//Resets field values when a game session is complete. This doesn't work.
-// if ((guessesLeft) < 1) {
-// 		(guessesLeft) = 9;
-// 		(guessesSofar.length) = 0;
-// }
-// else {
-// };
-
-
-
-
-
