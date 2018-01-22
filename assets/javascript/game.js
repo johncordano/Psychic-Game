@@ -82,11 +82,11 @@ document.onkeyup = function(event) {
  	document.getElementById("displayuserguesses").innerHTML = (guessesSofar);
 
  	// Console.logs used for debugging.
- 	// console.log(userGuess);
- 	// console.log(computerGuess);
- 	// console.log(guessesSofar);
- 	// console.log(guessesLeft);
- 	// console.log(losses);
- 	// console.log(wins);
+ 		// console.log(userGuess);
+ 		// console.log(computerGuess);
+ 		// console.log(guessesSofar);
+ 		// console.log(guessesLeft);
+ 		// console.log(losses);
+ 		// console.log(wins);
  	
 };
