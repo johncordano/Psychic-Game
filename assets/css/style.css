@@ -2,8 +2,31 @@
 h1 {
 	font-size: 40px;
 	font-weight: bold;
+	text-align: center;
 }
 
 h2 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	margin-top: 20px;
+}
+
+h3 {
 	float: left;
+	text-indent: 400px;
+	font-size: 30px;
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+div {
+	text-indent: 10px;
+	font-size: 30px;
+	margin-top:30px;
+} 
+
+
+body {
+	background-color: lightblue;
 }
