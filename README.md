@@ -6,7 +6,7 @@ The number of user wins and losses is tracked. In a game session, the history of
 
 The following image shows the application:
 
-![train image](assets/images/psychic-game.png)
+![psychic image](assets/images/psychic-game.png)
 
 # Tools Used
 
