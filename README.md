@@ -4,7 +4,11 @@ In this interactive game, the user presses a letter key on the keyboard to try t
 
 The number of user wins and losses is tracked. In a game session, the history of the user's selections is displayed, and the number of remaining guesses available to the user is displayed.
 
-Tools Used
+The following image shows the application:
+
+![train image](assets/images/psychic-game.png)
+
+# Tools Used
 
 - html and css
 - JavaScript
